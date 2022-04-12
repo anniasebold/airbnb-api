@@ -15,11 +15,6 @@ class PropertyController {
   /**
    * Show a list of all properties.
    * GET properties
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
    */
   async index () {
     const properties = Property.all()
@@ -30,10 +25,6 @@ class PropertyController {
   /**
    * Create/save a new property.
    * POST properties
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
   async store ({ request, response }) {
   }
@@ -41,11 +32,6 @@ class PropertyController {
   /**
    * Display a single property.
    * GET properties/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
    */
   async show ({ params }) {
     const property = await Property.findOrFail(params.id)
@@ -58,10 +44,6 @@ class PropertyController {
   /**
    * Update property details.
    * PUT or PATCH properties/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
   }
@@ -69,10 +51,6 @@ class PropertyController {
   /**
    * Delete a property with id.
    * DELETE properties/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
     const property = await Property.findOrFail(params.id)
