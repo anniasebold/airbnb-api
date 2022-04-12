@@ -16,11 +16,15 @@ class PropertyController {
    * Show a list of all properties.
    * GET properties
    */
-  async index () {
-    const properties = Property.all()
+  async index ({ request }) {
+  const { latitude, longitude } = request.all()
 
-    return properties;
-  }
+  const properties = Property.query()
+    .nearBy(latitude, longitude, 10)
+    .fetch()
+
+  return properties
+}
 
   /**
    * Create/save a new property.
