@@ -6,8 +6,16 @@ class UserController {
   async create ({ request, response }) {
     const data = request.only(['username', 'email', 'password'])
 
-    if (!data.username || !data.email || !data.password) {
-      return response.status(400).json({ error: 'Some fields is not informed' })
+    if(!data.username) {
+      return response.status(400).json({ error: 'Username is not informed' })
+    }
+
+    if(!data.email) {
+      return response.status(400).json({ error: 'Email is not informed' })
+    }
+
+    if(!data.password) {
+      return response.status(400).json({ error: 'Password is not informed' })
     }
 
     const user = await User.create(data)
