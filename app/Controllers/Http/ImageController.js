@@ -34,6 +34,10 @@ class ImageController {
         .map(image => property.images().create({ path: image.fileName }))
     )
   }
+
+  async show ({ params, response }) {
+    return response.download(Helpers.tmpPath(`uploads/${params.path}`))
+  }
 }
 
 module.exports = ImageController
